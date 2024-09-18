@@ -22,7 +22,7 @@ mr-lint-shellscript:
   extends: .mr-common
   image: registry.zrnt.dev/oci/shellcheck:v1.0.3
   script:
-    - find . -name '*.sh' | while read f ; do shellchek "$f" ; done
+    - find . -name '*.sh' | while read f ; do shellcheck "$f" ; done
 
 mr-lint-yaml:
   extends: .mr-common
