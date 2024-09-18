@@ -1,0 +1,32 @@
+.mr-common: &mr-common
+  rules:
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
+
+default:
+  tags:
+    - default
+
+mr-fmt-prettier:
+  <<: *mr-common
+  <<: *pnpm-cache
+  image: registry.zrnt.dev/oci/prettier:v1.0.7@sha256:a6f214a9ec4e9be58fe8549aa7442adad8cf1d152913468ea9764522ca84b3c2
+  script:
+    - prettier --check .
+
+mr-lint-docker-compose:
+  <<: *mr-common
+  image: docker.io/library/docker:27.2.1-cli@sha256:ce5ca0c57db0e5a43bf59a7cf62c2309b53f63dc86e18521798744054c000024
+  script:
+    - find . -name 'docker-compose.yml' | while read f ; do docker compose -f "$f" config -q ; done
+
+mr-lint-shellscript:
+  <<: *mr-common
+  image: registry.zrnt.dev/oci/shellcheck:v1.0.3
+  script:
+    - find . -name '*.sh' | while read f ; do shellchek "$f" ; done
+
+mr-lint-yaml:
+  <<: *mr-common
+  image: registry.zrnt.dev/oci/yamllint:v1.0.8@sha256:a138f0779b0cba15fefb0f8c73dc69aa3ab454497adddacc9b04c822ba7120e8
+  script:
+    - yamllint -c .gitlab/yamllint.yml .
