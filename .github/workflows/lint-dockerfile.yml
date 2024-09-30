@@ -6,6 +6,7 @@ jobs:
       - uses: docker://docker.io/pipelinecomponents/hadolint:0.26.4
         with:
           args: -c 'find . -name 'Dockerfile' | while read f ; do hadolint "$f" ; done'
+          entrypoint: sh
 
 name: lint-dockerfile
 

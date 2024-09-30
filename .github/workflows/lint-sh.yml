@@ -6,6 +6,7 @@ jobs:
       - uses: docker://docker.io/pipelinecomponents/shellcheck:0.12.12
         with:
           args: -c 'find . -name '*.sh' | while read f ; do shellcheck "$f" ; done'
+          entrypoint: sh
 
 name: lint-sh
 
