@@ -14,3 +14,6 @@ name: fmt-prettier
   pull_request:
     branches:
       - main
+
+permissions:
+  contents: write
