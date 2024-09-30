@@ -5,7 +5,9 @@ jobs:
       - uses: actions/checkout@v4.2.0
       - uses: docker://docker.io/pipelinecomponents/shellcheck:0.12.12
         with:
-          args: -c 'find . -name "*.sh" | while read f ; do shellcheck "$f" ; done'
+          args:
+            - -c
+            - find . -name '*.sh' | while read f ; do shellcheck "$f" ; done
           entrypoint: sh
 
 name: lint-sh
