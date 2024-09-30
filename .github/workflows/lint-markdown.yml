@@ -14,4 +14,5 @@ name: lint-markdown
     branches:
       - main
     paths:
+      - .github/workflows/lint-markdown.yml
       - "**.md"
