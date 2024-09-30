@@ -1,0 +1,15 @@
+name: lint-yaml
+
+jobs:
+  lint-yaml:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4.2.0
+      - run: yamllint -c .gitlab/yamllint.yml .
+
+on:
+  pull_request:
+    branches:
+      - main
+    paths:
+      - "**.yml"

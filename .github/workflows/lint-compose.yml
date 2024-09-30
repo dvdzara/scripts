@@ -1,0 +1,15 @@
+name: lint-compose
+
+jobs:
+  lint-compose:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4.2.0
+      - run: find . -name 'docker-compose.yml' | while read f ; do docker compose -f "$f" config -q ; done
+
+on:
+  pull_request:
+    branches:
+      - main
+    paths:
+      - "**/docker-compose.yml"

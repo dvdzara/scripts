@@ -2,12 +2,10 @@
   "customizations": {
     "vscode": {
       "extensions": [
-        "christian-kohler.path-intellisense",
         "DavidAnson.vscode-markdownlint",
         "esbenp.prettier-vscode",
-        "GitLab.gitlab-workflow",
-        "redhat.vscode-yaml",
-        "stkb.rewrap"
+        "ms-azuretools.vscode-docker",
+        "redhat.vscode-yaml"
       ]
     }
   },
