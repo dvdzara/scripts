@@ -13,5 +13,3 @@ on:
       - main
     paths:
       - "**.yml"
-
-
