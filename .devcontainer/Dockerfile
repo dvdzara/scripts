@@ -5,6 +5,7 @@ ENV GIT_VERSION="2.43.0"
 # renovate: datasource=repology depName=ubuntu_24_04/gpgme versioning=loose
 ENV GPGME_VERSION="1.18.0"
 
+# hadolint ignore=DL3009
 RUN apt-get update && \
   apt-get install -y --no-install-recommends \
   git="$GIT_VERSION" \
