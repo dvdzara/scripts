@@ -1,12 +1,15 @@
-FROM docker.io/library/alpine:3.20.3@sha256:beefdbd8a1da6d2915566fde36db9db0b524eb737fc57cd1367effd16dc0d06d
+FROM docker.io/library/ubuntu:24.04
 
-# renovate: datasource=repology depName=alpine_3_20/git versioning=loose
-ENV GIT_VERSION="2.45.2-r0"
-# renovate: datasource=repology depName=alpine_3_20/gpg versioning=loose
-ENV GPG_VERSION="2.4.5-r0"
+# renovate: datasource=repology depName=ubuntu_24_04/git versioning=loose
+ENV GIT_VERSION="2.43.0"
+# renovate: datasource=repology depName=ubuntu_24_04/gpgme versioning=loose
+ENV GPGME_VERSION="1.18.0"
 
-RUN apk add --no-cache \
+# hadolint ignore=DL3009
+RUN apt-get update && \
+  apt-get install -y --no-install-recommends \
   git="$GIT_VERSION" \
-  gpg="$GPG_VERSION"
+  gpgme="$GPGME_VERSION" && \
+  apt-get clean
 
 ENTRYPOINT []
