@@ -1,4 +1,4 @@
-FROM docker.io/library/ubuntu:24.04
+FROM docker.io/library/ubuntu:24.04@sha256:dfc10878be8d8fc9c61cbff33166cb1d1fe44391539243703c72766894fa834a
 
 # renovate: datasource=repology depName=ubuntu_24_04/git versioning=loose
 ENV GIT_VERSION="2.43.0"
