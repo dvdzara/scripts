@@ -1,15 +1,18 @@
 {
+  "name": "scripts",
+  "build": {
+    "dockerfile": "Dockerfile"
+  },
   "customizations": {
     "vscode": {
       "extensions": [
         "DavidAnson.vscode-markdownlint",
         "esbenp.prettier-vscode",
-        "ms-azuretools.vscode-docker",
-        "redhat.vscode-yaml"
+        "github.vscode-github-actions"
       ]
     }
   },
-  "dockerComposeFile": "docker-compose.yml",
-  "service": "devcontainer",
-  "workspaceFolder": "/srv"
+  "features": {
+    "ghcr.io/devcontainers/features/common-utils": {}
+  }
 }
