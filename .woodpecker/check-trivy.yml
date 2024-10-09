@@ -1,0 +1,10 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/woodpecker-ci/woodpecker/main/pipeline/frontend/yaml/linter/schema/schema.json
+
+steps:
+  - commands:
+      - trivy filesystem --scanners vuln,secret,misconfig .
+    image: docker.io/aquasec/trivy:0.56.1
+    name: check-trivy
+
+when:
+  - event: pull_request
