@@ -5,7 +5,7 @@ steps:
       - apk add git
       - |
         git ls-tree --name-only -r HEAD | grep -E "^(.+\/)?.*[^\/\s]\.sh$" | while read f ; do
-          echo "checking $f" && shfmt -ds "$f"
+          echo "checking $f" && shfmt -d -s "$f"
         done
     image: docker.io/mvdan/shfmt:v3.9.0-alpine
     name: check-shfmt
