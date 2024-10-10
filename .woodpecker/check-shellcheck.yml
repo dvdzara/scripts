@@ -11,7 +11,7 @@ steps:
         git ls-tree --name-only -r HEAD | grep -E "^(.+\/)?.*[^\/\s]\.sh$" | while read f ; do
           echo "checking $f" && shellcheck "$f"
         done
-    image: docker.io/pipelinecomponents/shellcheck:0.12.12
+    image: docker.io/pipelinecomponents/shellcheck:0.12.12@sha256:6b18bbca3f26338ce7f323862115df56f07628bfc4ffbe379c22b1d87d0b74f2
     name: check-shellcheck
 
 when:
