@@ -7,7 +7,7 @@ steps:
         git ls-tree --name-only -r HEAD | grep -E "^(.+\/)?.*[^\/\s]\.sh$" | while read f ; do
           echo "checking $f" && shfmt -d -s "$f"
         done
-    image: docker.io/mvdan/shfmt:v3.9.0-alpine
+    image: docker.io/mvdan/shfmt:v3.9.0-alpine@sha256:35917e76b35abf2c13d55b5c20f2e34a01e9b6ae71b443d916897bc7f1873451
     name: check-shfmt
 
 when:
