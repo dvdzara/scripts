@@ -1,0 +1,14 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/woodpecker-ci/woodpecker/main/pipeline/frontend/yaml/linter/schema/schema.json
+
+steps:
+  - commands:
+      - apk add git
+      - |
+        git ls-tree --name-only -r HEAD | grep -E "^(.+\/)?.*[^\/\s]\.sh$" | while read f ; do
+          echo "checking $f" && shellcheck "$f"
+        done
+    image: docker.io/pipelinecomponents/shellcheck:0.12.12
+    name: check-shellcheck
+
+when:
+  - event: pull_request

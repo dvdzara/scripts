@@ -2,9 +2,9 @@
 
 steps:
   - commands:
-      - markdownlint-cli2 **/*.md
-    image: docker.io/davidanson/markdownlint-cli2:v0.14.0
-    name: check-markdownlint-cli2
+      - woodpecker-cli lint
+    image: docker.io/woodpeckerci/woodpecker-cli:v2.7.1-alpine@sha256:54de7a459b673ea5bf4fc47b19a6ae2abd9c06dc9aa913ddcc7b0bcafa009a55
+    name: check-woodpecker-cli
 
 when:
   - event: pull_request
